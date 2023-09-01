@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj6xe4rjxl7px"]
+
+[ext_resource type="Texture2D" uid="uid://bwduqg34ty2a" path="res://Assets/Background/Sky.png" id="1_fpbam"]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_top = 256.0
+offset_right = 1152.0
+offset_bottom = 448.0
+texture = ExtResource("1_fpbam")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 256.0
+color = Color(0.113725, 0.756863, 1, 1)
