@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qil0"]
 size = Vector2(25, 24)
 
-[sub_resource type="Animation" id="Animation_tw8u2"]
-resource_name = "close"
+[sub_resource type="Animation" id="Animation_beph0"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -21,8 +21,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_beph0"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_tw8u2"]
+resource_name = "close"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

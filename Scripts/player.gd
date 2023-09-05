@@ -24,13 +24,14 @@ func _process(_delta):
 func jump_processing():
 	if !is_on_floor():
 		velocity.y += grav
+		jumping = true
 	else:
 		jumping = false
 		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP)) && !jumpClick :
 			velocity.y -= jump_force
 			jumpClick = true
 			jumping = true
-	if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) :
+	if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) && is_on_floor():
 		jumpClick = false
 
 
