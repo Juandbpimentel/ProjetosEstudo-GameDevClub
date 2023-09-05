@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var grav = 10
-var speed = 300
+var speed = 200
 var jump_force = 350
 var jumping = false
 var jumpClick = false
@@ -8,14 +8,13 @@ var chave = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	print('ready')
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	jump_processing()
-	movement_and_animation(jumping)
+	movement_and_animation()
 	move_and_slide()
 	pass
 
@@ -37,7 +36,7 @@ func jump_processing():
 
 
 
-func movement_and_animation(jumping):
+func movement_and_animation():
 	if jumping:
 		$AnimationPlayer.play("jumping")
 		if Input.is_action_pressed('ui_right'):

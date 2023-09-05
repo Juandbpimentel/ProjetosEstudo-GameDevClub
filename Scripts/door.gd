@@ -12,7 +12,7 @@ func _on_body_entered(body):
 				body.chave = false
 				passou_de_fase = true
 		else:
-			print('você não tem a chave')
+			print('Você não tem a chave')
 	pass # Replace with function body.
 
 
