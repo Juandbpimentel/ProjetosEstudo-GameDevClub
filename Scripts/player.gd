@@ -29,12 +29,7 @@ func _physics_process(_delta):
 func _input(event):
 	print(event.as_text())
 	if event is InputEventScreenTouch:
-		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W) || Input.is_action_just_pressed("jump")) && !jumpClick && is_on_floor() :
-			velocity.y -= jump_force
-			jumpClick = true
-			jumping = true
-		if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) && !Input.is_key_pressed(KEY_W) && !Input.is_action_pressed("jump") && is_on_floor():
-			jumpClick = false
+		jump_processing()
 
 # Implemented functions
 func jump_processing():
