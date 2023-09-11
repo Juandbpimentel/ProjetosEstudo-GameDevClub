@@ -14,31 +14,35 @@ func _ready():
 func _process(_delta):
 	$CanvasLayer/Coins.text = str(Global.moedasPlayer0)
 	if chave == true:
-		$CanvasLayer/Key.text = '✅'
+		$CanvasLayer/keySprite.visible = true
 	else:
-		$CanvasLayer/Key.text = '❌'
+		$CanvasLayer/keySprite.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
+	
 	jump_processing()
 	movement_and_animation()
 	move_and_slide()
 	pass
 
+func _input(event):
+	print(event.as_text())
+	if event is InputEventScreenTouch:
+		jump_processing()
 
-
-
+# Implemented functions
 func jump_processing():
 	if !is_on_floor():
 		velocity.y += grav
 		jumping = true
 	else:
 		jumping = false
-		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W)) && !jumpClick :
+		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W) || Input.is_action_just_pressed("jump")) && !jumpClick :
 			velocity.y -= jump_force
 			jumpClick = true
 			jumping = true
-	if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) && !Input.is_key_pressed(KEY_W) && is_on_floor():
+	if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) && !Input.is_key_pressed(KEY_W) && !Input.is_action_pressed("jump") && is_on_floor():
 		jumpClick = false
 
 
