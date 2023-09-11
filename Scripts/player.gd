@@ -14,9 +14,9 @@ func _ready():
 func _process(_delta):
 	$CanvasLayer/Coins.text = str(Global.moedasPlayer0)
 	if chave == true:
-		$CanvasLayer/Key.text = '✅'
+		$CanvasLayer/keySprite.visible = true
 	else:
-		$CanvasLayer/Key.text = '❌'
+		$CanvasLayer/keySprite.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):

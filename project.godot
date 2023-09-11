@@ -13,7 +13,7 @@ config_version=5
 config/name="Projeto-plataforma-exemplo"
 run/main_scene="res://Scenes/world1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-boot_splash/bg_color=Color(0.145098, 0.121569, 0.215686, 1)
+boot_splash/bg_color=Color(0.231373, 0.105882, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
