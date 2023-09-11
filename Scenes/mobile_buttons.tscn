@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0ufm421me1mu"]
+
+[ext_resource type="Texture2D" uid="uid://6km5yrjr555p" path="res://Assets/Buttons/LibreSprite/Left_button_green.png" id="1_l53w0"]
+[ext_resource type="Texture2D" uid="uid://dmf7so73guaa6" path="res://Assets/Buttons/LibreSprite/Left_button_green_pressed.png" id="2_1h6k3"]
+[ext_resource type="Texture2D" uid="uid://bias5m406a66r" path="res://Assets/Buttons/LibreSprite/Rigth_button_green.png" id="3_1xbkg"]
+[ext_resource type="Texture2D" uid="uid://meocep1blye2" path="res://Assets/Buttons/LibreSprite/Rigth_button_green_pressed.png" id="4_u275o"]
+[ext_resource type="Texture2D" uid="uid://ddbtnd7syk36b" path="res://Assets/Buttons/LibreSprite/Up_button_green.png" id="5_tkd58"]
+[ext_resource type="Texture2D" uid="uid://cegcco0pnm5h5" path="res://Assets/Buttons/LibreSprite/Up_button_green_pressed.png" id="6_0ggun"]
+
+[node name="Mobile buttons" type="CanvasLayer"]
+
+[node name="Right" type="TouchScreenButton" parent="."]
+z_index = 4
+position = Vector2(224, 544)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_1xbkg")
+texture_pressed = ExtResource("4_u275o")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="Left" type="TouchScreenButton" parent="."]
+z_index = 4
+position = Vector2(96, 544)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_l53w0")
+texture_pressed = ExtResource("2_1h6k3")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+z_index = 4
+position = Vector2(864, 544)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_tkd58")
+texture_pressed = ExtResource("6_0ggun")
+action = "jump"
+visibility_mode = 1
