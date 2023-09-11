@@ -15,9 +15,18 @@ run/main_scene="res://Scenes/world1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [dotnet]
 
 project/assembly_name="Projeto-plataforma-exemplo"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/juand/Documentos/Github/ProjetosEstudo-GameDevClub/Gravações/Gravação.avi"
+movie_writer/fps=75
 
 [rendering]
 
