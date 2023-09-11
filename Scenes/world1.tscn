@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj6xe4rjxl7px"]
+[gd_scene load_steps=8 format=3 uid="uid://dj6xe4rjxl7px"]
 
 [ext_resource type="Texture2D" uid="uid://bwduqg34ty2a" path="res://Assets/Background/Sky.png" id="1_wfmg5"]
 [ext_resource type="PackedScene" uid="uid://bdr1itaf3fkdf" path="res://Scenes/tile_map.tscn" id="2_d1w7o"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://1tyfk6tqyebr" path="res://Scenes/player.tscn" id="4_ii8yw"]
 [ext_resource type="PackedScene" uid="uid://d0c6xpcng8w1k" path="res://Scenes/key.tscn" id="5_dpwo2"]
 [ext_resource type="PackedScene" uid="uid://djnbarmi1b0vl" path="res://Scenes/coin.tscn" id="7_c3ip0"]
-[ext_resource type="PackedScene" uid="uid://d0ufm421me1mu" path="res://Scenes/mobile_buttons.tscn" id="8_tsgqc"]
 
 [node name="World1" type="Node2D"]
 
@@ -52,7 +51,3 @@ position = Vector2(674, 528)
 
 [node name="Coin4" parent="." instance=ExtResource("7_c3ip0")]
 position = Vector2(488, 432)
-
-[node name="Mobile buttons" parent="." instance=ExtResource("8_tsgqc")]
-layer = 4
-follow_viewport_scale = 0.5
