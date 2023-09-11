@@ -3,8 +3,12 @@ var grav = 10
 var speed = 200
 var jump_force = 300
 var jumping = false
+var walking = false
+
 var jumpClick = false
 var chave = false 
+
+@onready var animation := $AnimationPlayer as AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -18,18 +22,21 @@ func _process(_delta):
 	else:
 		$CanvasLayer/keySprite.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	
 	jump_processing()
 	movement_and_animation()
 	move_and_slide()
+	setar_animacao()
 	pass
 
 func _input(event):
 	print(event.as_text())
 	if event is InputEventScreenTouch:
 		jump_processing()
+	#print(event.as_text())
+	#if Input.is_joy_button_pressed(0,JOY_BUTTON_A):
+	#	print('botão A')
+
 
 # Implemented functions
 func jump_processing():
@@ -45,36 +52,27 @@ func jump_processing():
 	if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) && !Input.is_key_pressed(KEY_W) && !Input.is_action_pressed("jump") && is_on_floor():
 		jumpClick = false
 
-
-
-
 func movement_and_animation():
+		if Input.is_action_pressed('ui_right') || Input.is_key_pressed(KEY_D):
+			velocity.x = speed
+			$Sprite2D.flip_h = false
+			walking = true
+
+		elif Input.is_action_pressed('ui_left') || Input.is_key_pressed(KEY_A):
+			velocity.x = -speed
+			$Sprite2D.flip_h = true
+			walking = true
+		else:
+			velocity.x = 0
+			walking = false
+
+func setar_animacao():
+	var state = "idle"
+	
 	if jumping:
-		$AnimationPlayer.play("jumping")
-		if Input.is_action_pressed('ui_right') || Input.is_key_pressed(KEY_D):
-			velocity.x = speed
-			$Sprite2D.flip_h = false
-
-		elif Input.is_action_pressed('ui_left') || Input.is_key_pressed(KEY_A):
-			velocity.x = -speed
-			$Sprite2D.flip_h = true
-		else:
-			velocity.x = 0
-	else:
-		if Input.is_action_pressed('ui_right') || Input.is_key_pressed(KEY_D):
-			velocity.x = speed
-			$Sprite2D.flip_h = false
-			$AnimationPlayer.play("walking")
-
-		elif Input.is_action_pressed('ui_left') || Input.is_key_pressed(KEY_A):
-			velocity.x = -speed
-			$Sprite2D.flip_h = true
-			$AnimationPlayer.play("walking")
-		else:
-			velocity.x = 0
-			$AnimationPlayer.play("idle")
-
-#func _input(event):
-	#print(event.as_text())
-	#if Input.is_joy_button_pressed(0,JOY_BUTTON_A):
-	#	print('botão A')
+		state = "jumping"
+	elif walking:
+		state = 'walking'
+		
+	if animation.name != state:
+		animation.play(state)
