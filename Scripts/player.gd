@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	pass
 
 func _input(event):
-	print(event.as_text())
+	#print(event.as_text())
 	if event is InputEventScreenTouch:
 		jump_processing()
 	#print(event.as_text())
@@ -56,11 +56,13 @@ func movement_and_animation():
 		if Input.is_action_pressed('ui_right') || Input.is_key_pressed(KEY_D):
 			velocity.x = speed
 			$Sprite2D.flip_h = false
+			$CollisionPolygon2D.scale.x = 1
 			walking = true
 
 		elif Input.is_action_pressed('ui_left') || Input.is_key_pressed(KEY_A):
 			velocity.x = -speed
 			$Sprite2D.flip_h = true
+			$CollisionPolygon2D.scale.x = -1
 			walking = true
 		else:
 			velocity.x = 0

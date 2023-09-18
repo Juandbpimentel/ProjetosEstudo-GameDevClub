@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bdr1itaf3fkdf" path="res://Scenes/tile_map.tscn" id="2_lfb4n"]
 [ext_resource type="PackedScene" uid="uid://d0c6xpcng8w1k" path="res://Scenes/key.tscn" id="2_rj5jh"]
 [ext_resource type="PackedScene" uid="uid://byrthbq4v24ls" path="res://Scenes/door.tscn" id="3_g562a"]
-[ext_resource type="PackedScene" uid="uid://coxdcnifcl1fx" path="res://Scenes/world3.tscn" id="4_f7sg6"]
+[ext_resource type="PackedScene" uid="uid://coxdcnifcl1fx" path="res://Scenes/world4.tscn" id="4_63xi1"]
 [ext_resource type="PackedScene" uid="uid://1tyfk6tqyebr" path="res://Scenes/player.tscn" id="4_vohyx"]
 [ext_resource type="PackedScene" uid="uid://djnbarmi1b0vl" path="res://Scenes/coin.tscn" id="7_fe000"]
 
@@ -38,7 +38,7 @@ layer_0/tile_data = PackedInt32Array(1114112, 1, 1, 1114113, 65537, 1, 1114114, 
 
 [node name="Door" parent="." instance=ExtResource("3_g562a")]
 position = Vector2(834, 509)
-world = ExtResource("4_f7sg6")
+world = ExtResource("4_63xi1")
 
 [node name="Player" parent="." instance=ExtResource("4_vohyx")]
 z_index = 2
