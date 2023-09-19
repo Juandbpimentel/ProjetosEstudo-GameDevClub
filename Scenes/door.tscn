@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://byrthbq4v24ls"]
+[gd_scene load_steps=9 format=3 uid="uid://byrthbq4v24ls"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_ajv66"]
 [ext_resource type="Texture2D" uid="uid://chydle8spxnpv" path="res://Assets/Objects/Door (32x32).png" id="2_0mjfa"]
+[ext_resource type="PackedScene" uid="uid://cxj6ietgd1rgi" path="res://Scenes/quit.tscn" id="2_s1h4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qil0"]
 size = Vector2(25, 24)
@@ -62,6 +63,7 @@ _data = {
 z_index = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_ajv66")
+world = ExtResource("2_s1h4a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_0mjfa")
