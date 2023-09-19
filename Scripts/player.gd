@@ -16,11 +16,7 @@ func _ready():
 
 
 func _process(_delta):
-	$CanvasLayer/Coins.text = str(Global.moedasPlayer0)
-	if chave == true:
-		$CanvasLayer/keySprite.visible = true
-	else:
-		$CanvasLayer/keySprite.visible = false
+	updateHud()
 
 func _physics_process(_delta):
 	jump_processing()
@@ -39,6 +35,33 @@ func _input(event):
 
 
 # Implemented functions
+
+#Hud Verifications
+
+func updateHud():
+	$CanvasLayer/Coins.text = str(Global.moedasPlayer0Atual)
+	
+	if chave == true:
+		$CanvasLayer/keySprite.visible = true
+	else:
+		$CanvasLayer/keySprite.visible = false
+	match Global.player0Health:
+		2:
+			if $CanvasLayer/HeartSprite3.visible == true:
+				$CanvasLayer/HeartSprite3.visible = false
+		1:
+			if $CanvasLayer/HeartSprite2.visible == true:
+				$CanvasLayer/HeartSprite2.visible = false
+				$CanvasLayer/HeartSprite3.visible = false
+		0:
+			if $CanvasLayer/HeartSprite1.visible == true:
+				$CanvasLayer/HeartSprite1.visible = false
+				$CanvasLayer/HeartSprite2.visible = false
+				$CanvasLayer/HeartSprite3.visible = false
+	
+
+
+
 func jump_processing():
 	if !is_on_floor():
 		velocity.y += grav

@@ -37,6 +37,6 @@ func _process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group('Player'):
-		Global.moedasPlayer0 = 0
+		Global.dealDamagePlayer()
 		get_tree().reload_current_scene()
 	pass # Replace with function body.

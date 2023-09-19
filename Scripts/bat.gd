@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player:
 		dir = (player.global_position - global_position).normalized()
 		velocity = speed * dir
@@ -21,7 +21,8 @@ func _process(delta):
 
 func _on_kill_area_body_entered(body):
 	if body.is_in_group('Player'):
-		Global.moedasPlayer0 = 0
+		Global.dealDamagePlayer()
+		
 		get_tree().reload_current_scene()
 	pass # Replace with function body.
 

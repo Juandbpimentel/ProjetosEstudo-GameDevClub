@@ -41,16 +41,16 @@ scale = Vector2(2, 2)
 position = Vector2(653, 394)
 
 [node name="Coin" parent="." instance=ExtResource("6_u4evj")]
-visible = false
-position = Vector2(624, 400)
+position = Vector2(353, 427)
 
 [node name="Coin2" parent="." instance=ExtResource("6_u4evj")]
-visible = false
-position = Vector2(448, 432)
+position = Vector2(479, 391)
 
 [node name="Coin3" parent="." instance=ExtResource("6_u4evj")]
-visible = false
-position = Vector2(320, 464)
+position = Vector2(224, 456)
 
 [node name="Wolf" parent="." instance=ExtResource("2_kepqa")]
-position = Vector2(746, 375)
+position = Vector2(749, 429)
+
+[node name="Coin4" parent="." instance=ExtResource("6_u4evj")]
+position = Vector2(833, 386)
