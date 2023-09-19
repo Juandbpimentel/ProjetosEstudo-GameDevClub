@@ -11,7 +11,6 @@
 [node name="World2" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
-z_index = -1
 offset_top = 352.0
 offset_right = 1152.0
 offset_bottom = 544.0
@@ -19,13 +18,11 @@ texture = ExtResource("1_p52u2")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
 offset_right = 1152.0
 offset_bottom = 352.0
 color = Color(0.113725, 0.756863, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-z_index = -1
 offset_top = 544.0
 offset_right = 1152.0
 offset_bottom = 728.0
