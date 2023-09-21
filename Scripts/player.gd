@@ -45,20 +45,20 @@ func jump_processing():
 		jumping = true
 	else:
 		jumping = false
-		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W) || Input.is_action_just_pressed("jump")) && !jumpClick :
+		if (Input.is_action_just_pressed("jump")):## && !jumpClick :
 			velocity.y -= jump_force
-			jumpClick = true
+			##jumpClick = true
 			jumping = true
-	if !Input.is_key_pressed(KEY_SPACE) && !Input.is_joy_button_pressed(0,JOY_BUTTON_B) && !Input.is_key_pressed(KEY_UP) && !Input.is_key_pressed(KEY_W) && !Input.is_action_pressed("jump") && is_on_floor():
-		jumpClick = false
+	##if !Input.is_action_pressed("jump") && is_on_floor():
+	##	jumpClick = false
 
 func movement_and_animation():
-		if Input.is_action_pressed('ui_right') || Input.is_key_pressed(KEY_D):
+		if Input.is_action_pressed('move_right'):
 			velocity.x = speed
 			$Sprite2D.flip_h = false
 			walking = true
 
-		elif Input.is_action_pressed('ui_left') || Input.is_key_pressed(KEY_A):
+		elif Input.is_action_pressed('move_left'):
 			velocity.x = -speed
 			$Sprite2D.flip_h = true
 			walking = true
