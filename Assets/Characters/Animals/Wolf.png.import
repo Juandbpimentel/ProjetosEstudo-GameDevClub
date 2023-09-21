@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://befnpo6mscgno"
-path="res://.godot/imported/Duck (16x16).png-ec4ba35c2ddfda3e747755f24c9ca94e.ctex"
+uid="uid://c7chsyx0k2qht"
+path="res://.godot/imported/Wolf.png-cae11c0f6344f0f177bc7f8567b9059e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Duck/Duck (16x16).png"
-dest_files=["res://.godot/imported/Duck (16x16).png-ec4ba35c2ddfda3e747755f24c9ca94e.ctex"]
+source_file="res://Assets/Characters/Animals/Wolf.png"
+dest_files=["res://.godot/imported/Wolf.png-cae11c0f6344f0f177bc7f8567b9059e.ctex"]
 
 [params]
 

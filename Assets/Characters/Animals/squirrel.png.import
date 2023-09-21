@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://befnpo6mscgno"
-path="res://.godot/imported/Duck (16x16).png-ec4ba35c2ddfda3e747755f24c9ca94e.ctex"
+uid="uid://q743i13cwdos"
+path="res://.godot/imported/squirrel.png-f43a4753128a92ee931a8e44593f6f47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Duck/Duck (16x16).png"
-dest_files=["res://.godot/imported/Duck (16x16).png-ec4ba35c2ddfda3e747755f24c9ca94e.ctex"]
+source_file="res://Assets/Characters/Animals/squirrel.png"
+dest_files=["res://.godot/imported/squirrel.png-f43a4753128a92ee931a8e44593f6f47.ctex"]
 
 [params]
 

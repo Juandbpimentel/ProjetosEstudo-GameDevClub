@@ -1,14 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://1tyfk6tqyebr"]
+[gd_scene load_steps=16 format=3 uid="uid://1tyfk6tqyebr"]
 
-[ext_resource type="Texture2D" uid="uid://bic1ff5ppdwk0" path="res://Assets/Characters/Duck/Duck (16x16).png" id="1_c88s6"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_u5umm"]
+[ext_resource type="Texture2D" uid="uid://dncxnysvt0mdr" path="res://Assets/Characters/Duck/DuckFinal.png" id="2_iml5f"]
 [ext_resource type="Texture2D" uid="uid://dp4ac1380uylb" path="res://Assets/UI/patohud.png" id="3_4q1gb"]
 [ext_resource type="Texture2D" uid="uid://b6nm2i443py4r" path="res://Assets/Objects/moeda.png" id="4_1lgev"]
 [ext_resource type="Texture2D" uid="uid://b38fblcvux8re" path="res://Assets/Objects/Key.png" id="5_lo6px"]
 [ext_resource type="PackedScene" uid="uid://d0ufm421me1mu" path="res://Scenes/mobile_buttons.tscn" id="6_dbppu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqngs"]
-size = Vector2(15, 15)
+[ext_resource type="Texture2D" uid="uid://c2mjpwybd7e2h" path="res://Assets/Effects/Heart.png" id="7_5sdrw"]
+[ext_resource type="Texture2D" uid="uid://lqcifw4a358q" path="res://Assets/Effects/EmptyHeart.png" id="8_m1lde"]
 
 [sub_resource type="Animation" id="Animation_jtouy"]
 length = 0.001
@@ -25,6 +24,36 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_bxdah"]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_05i8l"]
+resource_name = "gliding"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="Animation" id="Animation_j5g48"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -37,7 +66,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_6j8yg"]
@@ -53,12 +82,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_wsnim"]
 resource_name = "idle"
-length = 0.4
+length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -67,15 +96,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.150504),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_amyjt"]
 _data = {
 "RESET": SubResource("Animation_jtouy"),
+"falling": SubResource("Animation_bxdah"),
+"gliding": SubResource("Animation_05i8l"),
 "idle": SubResource("Animation_j5g48"),
 "jumping": SubResource("Animation_6j8yg"),
 "walking": SubResource("Animation_wsnim")
@@ -83,15 +114,15 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 3
+collision_mask = 2
 script = ExtResource("1_u5umm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_iqngs")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2, 8, -4, 8, -4, 6, -4, 0, -3, -1, -3, -5, -2, -6, -1, -7, 3, -7, 3, -7, 4, -6, 5, -5, 5, -4, 7, -2, 2, 6)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_c88s6")
-hframes = 2
+texture = ExtResource("2_iml5f")
+hframes = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
@@ -113,26 +144,69 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_4q1gb")
 
 [node name="coinSprite" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(168, 56)
+position = Vector2(56, 137)
 scale = Vector2(8, 8)
 texture = ExtResource("4_1lgev")
 hframes = 2
 
 [node name="keySprite" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(301, 60)
+position = Vector2(217, 139)
 scale = Vector2(4, 4)
 texture = ExtResource("5_lo6px")
 
 [node name="Coins" type="Label" parent="CanvasLayer"]
-offset_left = 208.0
-offset_top = 12.0
-offset_right = 242.0
-offset_bottom = 98.0
+offset_left = 96.0
+offset_top = 93.0
+offset_right = 130.0
+offset_bottom = 179.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
-text = "0"
+text = "0
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Mobile buttons" parent="CanvasLayer" instance=ExtResource("6_dbppu")]
+
+[node name="HeartSprite1" type="Sprite2D" parent="CanvasLayer"]
+z_index = 1
+position = Vector2(180, 56)
+scale = Vector2(5, 5)
+texture = ExtResource("7_5sdrw")
+
+[node name="EmptyHeartSprite1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(180, 56)
+scale = Vector2(5, 5)
+texture = ExtResource("8_m1lde")
+
+[node name="HeartSprite2" type="Sprite2D" parent="CanvasLayer"]
+z_index = 1
+position = Vector2(252, 56)
+scale = Vector2(5, 5)
+texture = ExtResource("7_5sdrw")
+
+[node name="EmptyHeartSprite2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(252, 56)
+scale = Vector2(5, 5)
+texture = ExtResource("8_m1lde")
+
+[node name="HeartSprite3" type="Sprite2D" parent="CanvasLayer"]
+z_index = 1
+position = Vector2(324, 56)
+scale = Vector2(5, 5)
+texture = ExtResource("7_5sdrw")
+
+[node name="EmptyHeartSprite3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(324, 56)
+scale = Vector2(5, 5)
+texture = ExtResource("8_m1lde")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(2, 8, -4, 8, -4, 6, -4, 0, -3, -1, -3, -5, -2, -6, -1, -7, 3, -7, 3, -7, 4, -6, 5, -5, 5, -4, 7, -2, 2, 6)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

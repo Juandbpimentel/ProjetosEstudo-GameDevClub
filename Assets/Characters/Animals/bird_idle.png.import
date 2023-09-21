@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://befnpo6mscgno"
-path="res://.godot/imported/Duck (16x16).png-ec4ba35c2ddfda3e747755f24c9ca94e.ctex"
+uid="uid://cvj1o5eegw503"
+path="res://.godot/imported/bird_idle.png-0caabffeac078960ca018eb15954bb6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Duck/Duck (16x16).png"
-dest_files=["res://.godot/imported/Duck (16x16).png-ec4ba35c2ddfda3e747755f24c9ca94e.ctex"]
+source_file="res://Assets/Characters/Animals/bird_idle.png"
+dest_files=["res://.godot/imported/bird_idle.png-0caabffeac078960ca018eb15954bb6c.ctex"]
 
 [params]
 

@@ -17,6 +17,12 @@ func _on_body_entered(body):
 
 
 func _on_timer_timeout():
+	if world == null:
+		get_tree().quit()
+		print("Deu certo sair")
+		return
+	print("Não deu certo sair")
 	get_tree().change_scene_to_packed(world)
 	player.chave = false
+	Global.moedasPlayer0ComeçoFase = Global.moedasPlayer0Atual
 	pass # Replace with function body.
