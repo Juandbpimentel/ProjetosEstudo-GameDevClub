@@ -1,9 +1,11 @@
 extends CharacterBody2D
-var grav = 10
+var grav = 18
 var speed = 200
-var jump_force = 300
+var jump_force = 380
 var jumping = false
 var walking = false
+var gliding = false
+var falling = false
 
 var jumpClick = false
 var chave = false 
@@ -12,7 +14,16 @@ var chave = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	pass # Replace with function body.
+	match Global.player0Health:
+		2:
+				$CanvasLayer/HeartSprite3.visible = false
+		1:
+				$CanvasLayer/HeartSprite2.visible = false
+				$CanvasLayer/HeartSprite3.visible = false
+		0:
+				$CanvasLayer/HeartSprite1.visible = false
+				$CanvasLayer/HeartSprite2.visible = false
+				$CanvasLayer/HeartSprite3.visible = false
 
 
 func _process(_delta):
@@ -26,12 +37,8 @@ func _physics_process(_delta):
 	pass
 
 func _input(event):
-	#print(event.as_text())
 	if event is InputEventScreenTouch:
 		jump_processing()
-	#print(event.as_text())
-	#if Input.is_joy_button_pressed(0,JOY_BUTTON_A):
-	#	print('botão A')
 
 
 # Implemented functions
@@ -45,19 +52,6 @@ func updateHud():
 		$CanvasLayer/keySprite.visible = true
 	else:
 		$CanvasLayer/keySprite.visible = false
-	match Global.player0Health:
-		2:
-			if $CanvasLayer/HeartSprite3.visible == true:
-				$CanvasLayer/HeartSprite3.visible = false
-		1:
-			if $CanvasLayer/HeartSprite2.visible == true:
-				$CanvasLayer/HeartSprite2.visible = false
-				$CanvasLayer/HeartSprite3.visible = false
-		0:
-			if $CanvasLayer/HeartSprite1.visible == true:
-				$CanvasLayer/HeartSprite1.visible = false
-				$CanvasLayer/HeartSprite2.visible = false
-				$CanvasLayer/HeartSprite3.visible = false
 	
 
 
@@ -66,9 +60,19 @@ func jump_processing():
 	if !is_on_floor():
 		velocity.y += grav
 		jumping = true
+		if velocity.y > 0:
+			if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W) || Input.is_action_just_pressed("jump")) :
+				velocity.y = 100
+				gliding = true
+				falling = false
+			else:
+				gliding = false
+				falling = true
 	else:
 		jumping = false
-		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W) || Input.is_action_just_pressed("jump")) && !jumpClick :
+		gliding = false
+		falling = false
+		if (Input.is_key_pressed(KEY_SPACE) || Input.is_joy_button_pressed(0,JOY_BUTTON_B) || Input.is_key_pressed(KEY_UP) || Input.is_key_pressed(KEY_W) || Input.is_action_just_pressed("jump")) && !jumpClick :			
 			velocity.y -= jump_force
 			jumpClick = true
 			jumping = true
@@ -93,11 +97,23 @@ func movement_and_animation():
 
 func setar_animacao():
 	var state = "idle"
-	
-	if jumping:
+
+	if gliding:
+		state = "gliding"
+	elif falling:
+		state = "falling"
+	elif jumping:
 		state = "jumping"
 	elif walking:
 		state = 'walking'
-		
+	
 	if animation.name != state:
 		animation.play(state)
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Inimigo"):
+		if (velocity.y > 0 && position.y < body.position.y):
+			body.queue_free()
+		else:
+			Global.dealDamagePlayer()

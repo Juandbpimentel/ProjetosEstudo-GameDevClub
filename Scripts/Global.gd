@@ -8,4 +8,7 @@ func dealDamagePlayer():
 	Global.moedasPlayer0Atual = Global.moedasPlayer0ComeçoFase
 	Global.player0Health -=1;
 	if Global.player0Health == 0:
+		#get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 		get_tree().quit()
+	else:
+		get_tree().reload_current_scene()

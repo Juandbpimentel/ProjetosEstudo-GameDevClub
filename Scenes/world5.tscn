@@ -29,6 +29,7 @@ layer_0/tile_data = PackedInt32Array(1114112, 1, 1, 1114113, 65537, 1, 1114114, 
 
 [node name="Door" parent="." instance=ExtResource("3_y83op")]
 position = Vector2(1038, 349)
+world = null
 
 [node name="Player" parent="." instance=ExtResource("4_soo0s")]
 z_index = 2
@@ -49,7 +50,6 @@ position = Vector2(479, 371)
 
 [node name="Coin4" parent="." instance=ExtResource("6_xljl3")]
 position = Vector2(929, 294)
-rotation = 1.5708
 
 [node name="Coin5" parent="." instance=ExtResource("6_xljl3")]
 position = Vector2(832, 372)
