@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://1tyfk6tqyebr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_u5umm"]
-[ext_resource type="Texture2D" uid="uid://dncxnysvt0mdr" path="res://Assets/Characters/Duck/DuckFinal.png" id="2_iml5f"]
-[ext_resource type="Texture2D" uid="uid://dp4ac1380uylb" path="res://Assets/UI/patohud.png" id="3_4q1gb"]
-[ext_resource type="Texture2D" uid="uid://b6nm2i443py4r" path="res://Assets/Objects/moeda.png" id="4_1lgev"]
-[ext_resource type="Texture2D" uid="uid://b38fblcvux8re" path="res://Assets/Objects/Key.png" id="5_lo6px"]
+[ext_resource type="Texture2D" uid="uid://bi0vaw43usd44" path="res://Assets/Characters/Duck/DuckFinal.png" id="2_iml5f"]
+[ext_resource type="Texture2D" uid="uid://cwrykd5d2ahj3" path="res://Assets/UI/patohud.png" id="3_4q1gb"]
+[ext_resource type="Texture2D" uid="uid://cashjy0bb2odi" path="res://Assets/Objects/moeda.png" id="4_1lgev"]
+[ext_resource type="Texture2D" uid="uid://dphp203dboae7" path="res://Assets/Objects/Key.png" id="5_lo6px"]
 [ext_resource type="PackedScene" uid="uid://d0ufm421me1mu" path="res://Scenes/mobile_buttons.tscn" id="6_dbppu"]
-[ext_resource type="Texture2D" uid="uid://c2mjpwybd7e2h" path="res://Assets/Effects/Heart.png" id="7_5sdrw"]
-[ext_resource type="Texture2D" uid="uid://lqcifw4a358q" path="res://Assets/Effects/EmptyHeart.png" id="8_m1lde"]
+[ext_resource type="Texture2D" uid="uid://c4e40ohtdjhq5" path="res://Assets/Effects/Heart.png" id="7_5sdrw"]
+[ext_resource type="Texture2D" uid="uid://j2ptccoirin5" path="res://Assets/Effects/EmptyHeart.png" id="8_m1lde"]
 
 [sub_resource type="Animation" id="Animation_jtouy"]
 length = 0.001
@@ -168,6 +168,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Mobile buttons" parent="CanvasLayer" instance=ExtResource("6_dbppu")]
+visible = false
 
 [node name="HeartSprite1" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
@@ -203,10 +204,10 @@ scale = Vector2(5, 5)
 texture = ExtResource("8_m1lde")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(2, 8, -4, 8, -4, 6, -4, 0, -3, -1, -3, -5, -2, -6, -1, -7, 3, -7, 3, -7, 4, -6, 5, -5, 5, -4, 7, -2, 2, 6)
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

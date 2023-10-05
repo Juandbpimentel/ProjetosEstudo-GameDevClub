@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddwdt0akvhd6g"]
 
-[ext_resource type="Texture2D" uid="uid://bwduqg34ty2a" path="res://Assets/Background/Sky.png" id="1_p52u2"]
+[ext_resource type="Texture2D" uid="uid://b134wypm4187g" path="res://Assets/Background/Sky.png" id="1_p52u2"]
 [ext_resource type="PackedScene" uid="uid://bdr1itaf3fkdf" path="res://Scenes/tile_map.tscn" id="2_lfb4n"]
 [ext_resource type="PackedScene" uid="uid://d0c6xpcng8w1k" path="res://Scenes/key.tscn" id="2_rj5jh"]
 [ext_resource type="PackedScene" uid="uid://byrthbq4v24ls" path="res://Scenes/door.tscn" id="3_g562a"]
@@ -56,16 +56,7 @@ position = Vector2(706, 527)
 position = Vector2(338, 529)
 
 [node name="Void" parent="." instance=ExtResource("8_1vds6")]
-position = Vector2(368, 749)
-
-[node name="Void2" parent="." instance=ExtResource("8_1vds6")]
-position = Vector2(400, 749)
-
-[node name="Void3" parent="." instance=ExtResource("8_1vds6")]
-position = Vector2(432, 749)
-
-[node name="Void4" parent="." instance=ExtResource("8_1vds6")]
-position = Vector2(464, 749)
-
-[node name="Void5" parent="." instance=ExtResource("8_1vds6")]
-position = Vector2(496, 749)
+modulate = Color(0.792157, 0.0313726, 0, 1)
+position = Vector2(432, 748)
+scale = Vector2(5, 1)
+collision_mask = 8
