@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://byrthbq4v24ls"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_ajv66"]
-[ext_resource type="Texture2D" uid="uid://pm0ik3pa10rp" path="res://Assets/Objects/Door (32x32).png" id="2_0mjfa"]
+[ext_resource type="Texture2D" uid="uid://clql3tvfpamkj" path="res://Assets/Objects/Door (32x32).png" id="2_0mjfa"]
 
 [sub_resource type="GDScript" id="GDScript_mh76s"]
 script/source = "extends Node2D

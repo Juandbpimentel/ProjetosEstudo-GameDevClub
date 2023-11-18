@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://onv7gn5fqbtt"]
 
 [ext_resource type="Script" path="res://Scripts/wolf.gd" id="1_6xp8v"]
-[ext_resource type="Texture2D" uid="uid://druxdkjh7bbot" path="res://Assets/Characters/Animals/Wolf.png" id="2_1ng81"]
+[ext_resource type="Texture2D" uid="uid://chh3ngrefmsut" path="res://Assets/Characters/Animals/Wolf.png" id="2_1ng81"]
 
 [sub_resource type="Animation" id="Animation_05igj"]
 length = 0.001
