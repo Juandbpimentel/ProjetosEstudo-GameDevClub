@@ -13,7 +13,7 @@ func _on_body_entered(body):
 				passou_de_fase = true
 		else:
 			print('Você não tem a chave')
-	pass # Replace with function body.
+	pass 
 
 
 func _on_timer_timeout():
@@ -25,4 +25,4 @@ func _on_timer_timeout():
 	get_tree().change_scene_to_packed(world)
 	player.chave = false
 	Global.moedasPlayer0ComeçoFase = Global.moedasPlayer0Atual
-	pass # Replace with function body.
+	pass 

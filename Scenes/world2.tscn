@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bkilq8i2fo42f" path="res://Assets/Background/Sky.png" id="1_p52u2"]
 [ext_resource type="PackedScene" uid="uid://bdr1itaf3fkdf" path="res://Scenes/tile_map.tscn" id="2_lfb4n"]
-[ext_resource type="PackedScene" uid="uid://d0c6xpcng8w1k" path="res://Scenes/key.tscn" id="2_rj5jh"]
-[ext_resource type="PackedScene" uid="uid://byrthbq4v24ls" path="res://Scenes/door.tscn" id="3_g562a"]
+[ext_resource type="PackedScene" uid="uid://d0c6xpcng8w1k" path="res://Scenes/cenario/key.tscn" id="2_rj5jh"]
+[ext_resource type="PackedScene" uid="uid://byrthbq4v24ls" path="res://Scenes/cenario/door.tscn" id="3_g562a"]
 [ext_resource type="PackedScene" uid="uid://coxdcnifcl1fx" path="res://Scenes/world4.tscn" id="4_63xi1"]
 [ext_resource type="PackedScene" uid="uid://1tyfk6tqyebr" path="res://Scenes/player.tscn" id="4_vohyx"]
-[ext_resource type="PackedScene" uid="uid://djnbarmi1b0vl" path="res://Scenes/coin.tscn" id="7_fe000"]
-[ext_resource type="PackedScene" uid="uid://dum2eniixyvqf" path="res://Scenes/void.tscn" id="8_1vds6"]
+[ext_resource type="PackedScene" uid="uid://djnbarmi1b0vl" path="res://Scenes/cenario/coin.tscn" id="7_fe000"]
+[ext_resource type="PackedScene" uid="uid://dum2eniixyvqf" path="res://Scenes/cenario/void.tscn" id="8_1vds6"]
 
 [node name="World2" type="Node2D"]
 

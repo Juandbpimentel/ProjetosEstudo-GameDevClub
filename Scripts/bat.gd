@@ -3,12 +3,12 @@ extends CharacterBody2D
 var player = null
 var speed = 80
 var dir = 0;
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$AnimationPlayer.play("flying")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 	if player:
 		dir = (player.global_position - global_position).normalized()
